@@ -1,0 +1,1279 @@
+
+
+<!DOCTYPE html>
+
+
+
+<html>
+<head>
+	<title>Global Bookmark</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css" >
+	<!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" >-->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">-->
+  <script  type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.12.4.js">
+  </script>
+  <script  type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js ">
+  </script>
+  <script  type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js ">
+  </script>
+
+
+  <script>
+$(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#bookmarks tfoot th').each( function () {
+        var title = $(this).text();
+        $(this).html( '<input id="hello" type="text" placeholder="Search '+title+'" />' );
+    } );
+
+    // DataTable
+    var table = $('#bookmarks').DataTable();
+
+    // Apply the search
+    table.columns([0]).every( function () {
+        var that = this;
+
+        $( '.form-control-form-control-sm', this.footer() ).on( 'keyup change', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+} );
+</script>
+</head>
+<body id="body">
+	<div id='menu-nav'>
+  		<div id='navigation-bar'>
+		    <ul>
+		      <li class='menu-sub-nav current-item'><a href='/'><i class='fa fa-home'></i><span>Global Bookmark</span></a></li>
+		      <li id="about" class='menu-sub-nav'><a href='/getting-started'><i class='fa fa-rocket'></i><span>Getting Started</span></a></li>
+		      <li id="contact" class='menu-sub-nav'><a href='/contact'><i class='fa fa-book'></i><span>Contact</span></a></li>
+		       <li id="user" class='menu-sub-nav'><a href='/accounts/logout'><i class='fa fa-user '></i><span>Sign Out</span></a></li>
+		    </ul>
+  		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<table style="width: 20%" id="unique">
+		<tr>
+			<td>
+				<button class="btn btn-dark" id="trash" title="Multiple Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td>
+				<button class="btn btn-dark" id="trash" title="Multiple Share"><i class="fa fa-share-alt"></i></button>
+			</td> 
+				
+
+<td>
+<button class="btn btn-dark" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><i class="fa fa-plus"></i></button>
+</td>
+</tr>
+<tr>
+	<td>
+
+
+			</td>
+</tr>
+</table>
+		<table width="15%" id="tag">
+    <tr>
+			<th colspan="3">
+			Tags :
+		</th>
+		</tr>
+		<tr>
+			<td height="40">
+				<h5>
+	<a href="#" class="badge badge-pill badge-primary">Primary</a></h5>
+</td>
+			<td>
+				<h5>
+			<a href="#" class="badge badge-pill badge-primary">Primary</a>	</h5>
+			</td>
+			<td>
+				<h5>
+				<a href="#" class="badge badge-pill badge-primary">Primary</a>
+			</h5>
+			</td>
+</tr>
+<tr>
+			<td height="40">
+				<h5>
+	<a href="#" class="badge badge-pill badge-primary">Primary</a>
+</h5>
+</td>
+<td>
+	<h5>
+	<a href="#" class="badge badge-pill badge-primary">Primary</a>
+</h5>
+</td>
+<td>
+				<h5>
+	<a href="#" class="badge badge-pill badge-primary">Primary</a>
+</h5>
+			</td>
+</tr>
+<tr>
+			<td height="40">
+	<h5>
+	<a href="#" class="badge badge-pill badge-primary">Primary</a>
+</h5>
+</td>
+<td>
+	<h5>
+	<a href="#" class="badge badge-pill badge-primary">Primary</a>
+</h5>
+</td>
+<td>
+				<h5>
+	<a href="#" class="badge badge-pill badge-primary">Primary</a>
+</h5>
+			</td>
+</tr>
+<tr>
+			<td height="40">
+	<h5>
+	<a href="#" class="badge badge-pill badge-primary">Primary</a>
+</h5>
+<td>
+	<h5>
+	<a href="#" class="badge badge-pill badge-primary">Primary</a>
+</h5>
+<td>
+				<h5>
+	<a href="#" class="badge badge-pill badge-primary">Primary</a>
+</h5>
+			</td>
+</tr>
+</table>
+	<table style="width:65%" id="main_body">
+	    <tr>
+	        <td>
+	<table style="width: 100%" id="bookmarks">
+		<thead>
+			<tr height="50px">
+				<th>Tag:Title</th>
+				<th width="10%">Frequency</th>
+				<th width="20%">Date</th>
+				<th width="9%">Delete</th>
+				<th width="9%">Copy</th>
+			</tr>
+		</thead>
+	
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">jhkjh</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:05 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">Tulsi Chutiya</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:06 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">ha ha ha</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:06 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">lorm ipsum</a>
+			</td>
+			<td style="text-align:center;">
+				10
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:07 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">manthan chutiya</a>
+			</td>
+			<td style="text-align:center;">
+				30
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:07 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">kdjkd</a>
+			</td>
+			<td style="text-align:center;">
+				38
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:07 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">pyaar diwaana hota h</a>
+			</td>
+			<td style="text-align:center;">
+				12
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:08 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">chalaa ja parwaana</a>
+			</td>
+			<td style="text-align:center;">
+				2
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:09 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">khushi hota h</a>
+			</td>
+			<td style="text-align:center;">
+				3
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:09 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">tun tun tun aeuwhd</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:10 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">khareed k lelllo</a>
+			</td>
+			<td style="text-align:center;">
+				3
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:12 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">bhejne me mehnat karo</a>
+			</td>
+			<td style="text-align:center;">
+				-10
+			</td>
+			<td style="text-align:center;">
+				Oct. 6, 2017, 9:13 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">again</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 9, 2017, 5:41 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">again</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 6:53 a.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">again</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 7:02 a.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">test</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 7:27 a.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">test</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 7:27 a.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">test</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 7:31 a.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">finale</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 7:32 a.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 1:48 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 1:52 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 1:53 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 1:54 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 2:24 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 2:24 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 2:25 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 2:29 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 2:29 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 2:29 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 2:29 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 2:30 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+		<tr class="ro">
+			<td id="title">
+				<a id="url_link" href="wikipidea.www">working?</a>
+			</td>
+			<td style="text-align:center;">
+				0
+			</td>
+			<td style="text-align:center;">
+				Oct. 10, 2017, 2:30 p.m.
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="Delete"><i class="fa fa-trash"></i></button>
+			</td>
+			<td style="text-align:center;">
+				<button class="btn btn-link" id="trash" title="copy to clipboard"><i class="fa fa-clipboard"></i></button>
+			</td>
+		</tr>
+		
+	</table>
+	</td>
+	</tr>
+	</table>
+
+<div id="id01" class="modal" style="position: absolute;">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+    	<h4  style="color:red;align:center;">Add bookmarks</h4>
+     
+      <label><b>Title</b></label>
+      <input type="text" placeholder="Enter Title" name="uname" required id="hgdhj">
+      <label><b>Tag</b></label>
+      <input type="text" placeholder="Tag" name="psw" required>
+      <br>
+      <label><b>URL</b></label>
+      <input type="text" placeholder="url" name="psw" required>
+
+      <table>
+        <tr>
+          <td id="bottom_but">
+      <button type="submit">Login</button>
+    </td>
+    <td>
+       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+     </td>
+      </tr>
+    </table>
+    </div>
+  </form>
+</div>
+
+	<div id="bottom">
+	<footer id="footer">
+	    <a href="#">
+	        Privacy Statement
+	    </a>
+	    <br>
+	    <a href="#">
+	        Terms of Use
+	    </a>
+	</footer>
+	</div>
+</body>
+</html>
+
+<style>
+
+
+
+input[type=text], input[type=password] {
+    width: 100% ;
+    
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #2f2f2f;
+    color: white;
+    padding: 6px 2px;
+    margin: 3px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+	left :65%;
+	top:10%;
+  
+    display: none; /* Hidden by default */
+     /* Stay in place */
+     float: right;
+    z-index: 1; /* Sit on top */
+   padding:1% 1% 1% 1%;
+    width: 32%; /* Full width */
+    height: 43%; /* Full height */
+   /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+   
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+ 
+    border: 1px solid #888;
+ }
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+
+
+
+table.dataTable {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important
+}
+table.dataTable td,
+table.dataTable th {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box
+}
+table.dataTable td.dataTables_empty,
+table.dataTable th.dataTables_empty {
+    text-align: center
+}
+table.dataTable.nowrap th,
+table.dataTable.nowrap td {
+    white-space: nowrap
+}
+div.dataTables_wrapper div.dataTables_length label {
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap
+}
+div.dataTables_wrapper div.dataTables_length select {
+    width: 75px;
+    display: inline-block
+}
+div.dataTables_wrapper div.dataTables_filter {
+    text-align: right
+}
+div.dataTables_wrapper div.dataTables_filter label {
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: left
+}
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: 0.5em;
+    display: inline-block;
+}
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0.85em;
+    white-space: nowrap
+}
+div.dataTables_wrapper div.dataTables_paginate {
+    margin: 0;
+    white-space: nowrap;
+    text-align: right
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin: 2px 0;
+    white-space: nowrap;
+    justify-content: flex-end
+}
+div.dataTables_wrapper div.dataTables_processing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -26px;
+    text-align: center;
+    padding: 1em 0
+}
+table.dataTable thead>tr>th.sorting_asc,
+table.dataTable thead>tr>th.sorting_desc,
+table.dataTable thead>tr>th.sorting,
+table.dataTable thead>tr>td.sorting_asc,
+table.dataTable thead>tr>td.sorting_desc,
+table.dataTable thead>tr>td.sorting {
+    padding-right: 30px
+}
+table.dataTable thead>tr>th:active,
+table.dataTable thead>tr>td:active {
+    outline: none
+}
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+    cursor: pointer;
+    position: relative
+}
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:after {
+    position: absolute;
+    bottom: 0.9em;
+    display: block;
+    opacity: 0.3
+}
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:before {
+    right: 1em;
+    content: "\2191"
+}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+    right: 0.5em;
+    content: "\2193"
+}
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:after {
+    opacity: 1
+}
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:after {
+    opacity: 0
+}
+div.dataTables_scrollHead table.dataTable {
+    margin-bottom: 0 !important
+}
+div.dataTables_scrollBody table {
+    border-top: none;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important
+}
+div.dataTables_scrollBody table thead .sorting:after,
+div.dataTables_scrollBody table thead .sorting_asc:after,
+div.dataTables_scrollBody table thead .sorting_desc:after {
+    display: none
+}
+div.dataTables_scrollBody table tbody tr:first-child th,
+div.dataTables_scrollBody table tbody tr:first-child td {
+    border-top: none
+}
+div.dataTables_scrollFoot>.dataTables_scrollFootInner {
+    box-sizing: content-box
+}
+div.dataTables_scrollFoot>.dataTables_scrollFootInner>table {
+    margin-top: 0 !important;
+    border-top: none
+}
+@media screen and (max-width: 767px) {
+    div.dataTables_wrapper div.dataTables_length,
+    div.dataTables_wrapper div.dataTables_filter,
+    div.dataTables_wrapper div.dataTables_info,
+    div.dataTables_wrapper div.dataTables_paginate {
+        text-align: center
+    }
+}
+table.dataTable.table-sm>thead>tr>th {
+    padding-right: 20px
+}
+table.dataTable.table-sm .sorting:before,
+table.dataTable.table-sm .sorting_asc:before,
+table.dataTable.table-sm .sorting_desc:before {
+    top: 5px;
+    right: 0.85em
+}
+table.dataTable.table-sm .sorting:after,
+table.dataTable.table-sm .sorting_asc:after,
+table.dataTable.table-sm .sorting_desc:after {
+    top: 5px
+}
+table.table-bordered.dataTable th,
+table.table-bordered.dataTable td {
+    border-left-width: 0
+}
+table.table-bordered.dataTable th:last-child,
+table.table-bordered.dataTable th:last-child,
+table.table-bordered.dataTable td:last-child,
+table.table-bordered.dataTable td:last-child {
+    border-right-width: 0
+}
+table.table-bordered.dataTable tbody th,
+table.table-bordered.dataTable tbody td {
+    border-bottom-width: 0
+}
+div.dataTables_scrollHead table.table-bordered {
+    border-bottom-width: 0
+}
+div.table-responsive>div.dataTables_wrapper>div.row {
+    margin: 0
+}
+div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:first-child {
+    padding-left: 0
+}
+div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-child {
+    padding-right: 0
+}
+
+
+
+
+
+body{
+  font-family: 'Raleway', sans-serif;
+  height:100%;
+  margin-top :0px;
+
+}
+
+#menu-nav{
+  position: relative;
+  float:left;
+  width:100%;
+  height:auto;
+  background-color:#333;
+  border-radius:4px;
+  overflow:hidden;
+  box-shadow:0 0 5px rgba(0,0,0,0.3);
+  margin-top: -5px;
+  margin-bottom: 50px;
+}
+
+#navigation-bar {
+  width:100%;
+}
+
+#navigation-bar ul {
+    margin:0; padding:0;
+    list-style:none;
+    width:100%;
+    border-radius:4px;
+    overflow:hidden;
+}
+#navigation-bar li {
+    float:left;
+    padding:0;
+    font-family: 'Raleway', sans-serif;
+    margin:0;
+    width:25%;
+}
+#navigation-bar a {
+    color:#ecf0f1;
+    font-size:20px;
+    text-decoration:none; text-align:center;
+    width:100%;
+    padding:10px 0;
+    display:block; position:relative;
+    transition: all 0.3s ease;
+}
+#navigation-bar a:hover {color:#e74c3c;}
+
+#navigation-bar a:before {
+  content:'';
+  transition:all .4s ease-in-out;
+  position:absolute; right:50%; left:50%; bottom:0;
+  display:block;
+  height:2px;
+  background-color:#e74c3c;
+}
+
+#navigation-bar li:hover a:before, #navigation-bar a:hover:before {right:0; left:0;}
+#navigation-bar span {display:block;}
+
+#unique{
+    margin-left:80%;
+  margin-bottom: 5%;
+}
+#search1{
+  margin-left: 5%;
+  margin-right: 25%;
+
+}
+#tag{
+    float:right;
+    margin-right:4%;
+}
+
+
+#trash{
+  cursor: pointer;
+}
+
+#main_body{
+    margin-left: 4%;
+    margin-bottom:15%;
+}
+thead{
+  border:1px solid black;
+    background-color: #333;
+    color:white;
+}
+th{
+   padding-left:15px;
+}
+
+/* unvisited link */
+a#url_link:link {
+    color: black;
+}
+
+/* visited link */
+a#url_link:visited {
+    color:aqua;
+}
+
+
+/* selected link */
+a#url_link:active {
+    color: blue;
+}
+td#title{
+    padding-left:15px;
+}
+
+.ro{
+  border-bottom: 1px solid #ddd;
+}
+table#bookmarks tr:nth-child(even) {
+   background-color:white;
+}
+
+#footer{
+    width:100%;
+    background-color:#333;
+    padding:25px;
+
+}
+
+.dataTables_filter label
+{
+     float:left;
+     width:85%;
+}
+input[type=search] {
+
+     border: 2px solid red;
+     border-radius: 4px;
+     background-image: url('https://www.w3schools.com/css/searchicon.png');
+     background-position: 5px 4px;
+     background-repeat: no-repeat;
+}
+
+#body{
+    height:100%;
+    background-color:#d6eaf8;
+}
+<!--
+following css is for popup window on add bookmarks buttons
+-->
+
+
+/* Change styles for span and cancel button on extra small screens */
+
+</style>
+
+
+<script>
+    $("#add").click(function(){
+        var title = "add is working through dashboard";
+        var url = "www.w3school.com";
+        var tag = "learning";
+
+        $.ajax({
+        type: "GET",
+        url: '/add',
+        data: {
+          'title': title,
+          'url':url,
+          'tag':tag
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.correct)
+            alert("Succesfully added");
+         else alert("Try again");
+
+        }
+      });
+});
+</script>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+
+
+
+
+
+
