@@ -1,4 +1,4 @@
-# build-chrome-extension
+# bookmarks with chrome-extension
 Hello Everyone,
 Here i'm emphasizing on my project "bookmarks using chrome extension".
 This is a tool by which you can save/bookamrk/copy to clipborad/share /delete your link.
